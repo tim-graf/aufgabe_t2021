@@ -1,0 +1,11 @@
+[
+  {
+    "fahrt_id": "bf0015",
+    "person": "T9649",
+    "datum_fahrt": "2021-03-09",
+    "start": "Saarstraße 78, 50859 Köln",
+    "ziel": "Vogelsangstraße 106, 42109 Wuppertal",
+    "datum_rechnung": "2021-04-25",
+    "betrag_rechnung": "92 EUR"
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "fahrt_id": "bf0021",
+    "person": "C4335",
+    "datum_fahrt": "2021-03-09",
+    "start": "Katernberger Str. 173, 42115 Wuppertal",
+    "ziel": "Bergstraße 6-12, 42105 Wuppertal",
+    "datum_rechnung": "2021-04-20",
+    "betrag_rechnung": "329 EUR"
+  }
+]

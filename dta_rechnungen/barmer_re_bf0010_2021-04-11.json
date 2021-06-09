@@ -1,0 +1,11 @@
+[
+  {
+    "fahrt_id": "bf0010",
+    "person": "J9129",
+    "datum_fahrt": "2021-03-18",
+    "start": "Gremberger Straße 185, 51105 Köln",
+    "ziel": "Bachemer Str. 29-33, 50931 Köln",
+    "datum_rechnung": "2021-04-11",
+    "betrag_rechnung": "106 EUR"
+  }
+]

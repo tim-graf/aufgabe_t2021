@@ -1,0 +1,11 @@
+[
+  {
+    "fahrt_id": "bf0014",
+    "person": "D7174",
+    "datum_fahrt": "2021-03-01",
+    "start": "Georg-Reiter-Straße 17, 50827 Köln",
+    "ziel": "Heusnerstrasse 10; 42283 Wuppertal",
+    "datum_rechnung": "2021-04-13",
+    "betrag_rechnung": "149 EUR"
+  }
+]

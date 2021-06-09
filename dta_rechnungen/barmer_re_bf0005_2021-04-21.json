@@ -1,0 +1,11 @@
+[
+  {
+    "fahrt_id": "bf0005",
+    "person": "J2385",
+    "datum_fahrt": "2021-03-27",
+    "start": "Siebengebirgsallee 86, 50939 Köln",
+    "ziel": "Hainstraße 35, 42109 Wuppertal",
+    "datum_rechnung": "2021-04-21",
+    "betrag_rechnung": "347 EUR"
+  }
+]

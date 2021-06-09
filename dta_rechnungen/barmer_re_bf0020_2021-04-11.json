@@ -1,0 +1,11 @@
+[
+  {
+    "fahrt_id": "bf0020",
+    "person": "V9732",
+    "datum_fahrt": "2021-03-22",
+    "start": "Westfalenweg 90, 42111 Wuppertal",
+    "ziel": "Heusnerstrasse 10; 42283 Wuppertal",
+    "datum_rechnung": "2021-04-11",
+    "betrag_rechnung": "199 EUR"
+  }
+]

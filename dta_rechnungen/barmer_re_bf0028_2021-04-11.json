@@ -1,0 +1,11 @@
+[
+  {
+    "fahrt_id": "bf0028",
+    "person": "M6481",
+    "datum_fahrt": "2021-03-06",
+    "start": "Neuenbaumer Weg 1, 42111 Wuppertal",
+    "ziel": "Bergstraße 6-12, 42105 Wuppertal",
+    "datum_rechnung": "2021-04-11",
+    "betrag_rechnung": "125 EUR"
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "fahrt_id": "bf0018",
+    "person": "C4086",
+    "datum_fahrt": "2021-03-24",
+    "start": "Eichenstraße 5, 42283 Wuppertal",
+    "ziel": "Heusnerstrasse 10; 42283 Wuppertal",
+    "datum_rechnung": "2021-04-01",
+    "betrag_rechnung": "110 EUR"
+  }
+]

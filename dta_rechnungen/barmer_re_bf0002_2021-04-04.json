@@ -1,0 +1,11 @@
+[
+  {
+    "fahrt_id": "bf0002",
+    "person": "U2736",
+    "datum_fahrt": "2021-03-01",
+    "start": "Kalker Hauptstraße 229, 50933 Köln",
+    "ziel": "Weyertal 76, 50931 Köln",
+    "datum_rechnung": "2021-04-04",
+    "betrag_rechnung": "267 EUR"
+  }
+]

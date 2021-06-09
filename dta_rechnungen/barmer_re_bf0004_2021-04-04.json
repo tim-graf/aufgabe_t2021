@@ -1,0 +1,11 @@
+[
+  {
+    "fahrt_id": "bf0004",
+    "person": "E1173",
+    "datum_fahrt": "2021-03-23",
+    "start": "Remigiusstraße 33, 50937 Köln",
+    "ziel": "Ostmerheimer Str. 200, 51109 Köln",
+    "datum_rechnung": "2021-04-04",
+    "betrag_rechnung": "376 EUR"
+  }
+]

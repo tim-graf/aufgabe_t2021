@@ -1,0 +1,11 @@
+[
+  {
+    "fahrt_id": "bf0003",
+    "person": "R5008",
+    "datum_fahrt": "2021-03-06",
+    "start": "Repgostraße 2, 50931 Köln",
+    "ziel": "Bachemer Str. 29-33, 50931 Köln",
+    "datum_rechnung": "2021-04-12",
+    "betrag_rechnung": "268 EUR"
+  }
+]
