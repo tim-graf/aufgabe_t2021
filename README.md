@@ -5,14 +5,16 @@
 Das Wichtigste zuerst: 
 > Don't panic! -- *The Hitchiker's Guide to the Galaxy*
 
-Ziel der Aufgabe ist es, dass sowohl Sie ein Gefühl für die Arbeit als Data Engineer bekommen als auch das wir ein Gefühl für Ihr Vorgehen als Entwickler gewinnen können. 
+Ziel der Aufgabe ist es, dass Sie ein Gefühl für die Arbeit als Data Engineer bekommen. Gleichzeitig wollen wir einen Eindruck für Ihr Vorgehen als Entwickler gewinnen können. 
 Die Aufgabe soll sowohl die klassische Datenaufbereitung simulieren als auch die Situation, dass Sie als Data Engineer immer vor der Herausforderungen stehen, sich in neue Technikthemen einzuarbeiten um ein Problem zu lösen. 
 
 Sie sollen weder das Rad neu erfinden, noch an den Problemen verzweifeln. Deswegen nutzen Sie die zusätzlichen Libraries Ihrer Programmiersprache um alltägliche Probleme zu lösen (Nutzen Sie eine Library zum Parsen von JSON-Files und schreiben sie keinen JSON-Parser). Und wenn Sie nicht weiter wissen, dann nehmen Sie bitte Kontakt mit Ihrem Ansprechpartner auf, denn letztendlich ist das Erstellen von Datenprodukten immer ein Teamsport.
 
+Die Bearbeitung der Aufgabe und die Bereitstellung der Ergebnisse soll bis zum **04.08.2021** erfolgen. 
+
 # Hintergrund
 
-Eine Aufgabe der Krankenkasse ist es die Fahrtkosten, die im Rahmen von medizinisch notwendigen Leistungen entstanden sind, zu übernehmen. Eine Fahrt wird der Krankenkasse zeitnach nach ihrer Durchführung mitgeteilt und dort fortlaufend in einer Datenbank hinterlegt. 
+Eine Aufgabe der Krankenkasse ist es die Fahrkosten, die im Rahmen von medizinisch notwendigen Leistungen entstanden sind, zu übernehmen. Eine Fahrt wird der Krankenkasse zeitnah nach ihrer Durchführung mitgeteilt und dort fortlaufend in einer Datenbank hinterlegt. 
 Die Rechnungen erreichen die Krankenkassen meist erst 2-4 Wochen nach der Fahrt über einen elektronischen Datenaustausch. Vor Bewilligung und Bezahlung der Rechnung muss diese geprüft werden. Dies geschieht aktuell noch manuell, aber eine automatische Prüfung ist in Überlegung.
 
 # Aufgabenstellung
@@ -35,7 +37,7 @@ Wenn eine Fahrt der Krankenkasse bekannt gemacht wird, wird sie in einer SQLite-
 
 ### Rechnung im Datenaustausch
 
-Die Rechnungen kommen einzelnd als Datei im Datenaustausch. Sie sind im ordner `sources/dta_rechnungen` zu finden und sind nach dem folgenden Schema benannt `kk_<fahrt_id>_<rechnungsdatum>.json`. Die Informationen in den Dateien werden im `json`-Format bereitgestellt. Die Keys entsprechenen in Bezeichnung und Inhalt den Tabellenspalten aus dem Abschnitt *Fahrtmeldung*. Die Start- und Zieladressen sind nicht vorhanden. Zusätzlich werden aber zwei weitere Keys übermittelt.
+Die Rechnungen kommen einzeln als Datei im Datenaustausch. Sie sind im ordner `sources/dta_rechnungen` zu finden und sind nach dem folgenden Schema benannt `kk_<fahrt_id>_<rechnungsdatum>.json`. Die Informationen in den Dateien werden im `json`-Format bereitgestellt. Die Keys entsprechenen in Bezeichnung und Inhalt den Tabellenspalten aus dem Abschnitt *Fahrtmeldung*. Die Start- und Zieladressen sind nicht vorhanden. Zusätzlich werden aber zwei weitere Keys übermittelt.
 - **datum_rechnung**: Datum, an dem die Rechnung gestellt wurde
 - **betrag_rechnung**: Der Rechnungsbetrag als String in Euro 
 
@@ -43,11 +45,11 @@ Die Rechnungen kommen einzelnd als Datei im Datenaustausch. Sie sind im ordner `
 
 ### Zusammenführung: Fahrtmeldung und Rechnung
 
-Die Informationen aus der Fahrtmeldung und den Rechnungsinformationen sollen zusammengeführt werden. Dabei sollen nur die Fahrten berücksichtigt werden für die bereits eine Rechnung vorliegt. 
+Die Informationen aus der Fahrtmeldung und den Rechnungsinformationen sollen zusammengeführt werden. 
 
 ### Anreicherung: Entfernung zwischen Start und Ziel
 
-Für eine einfacherere Rechnungsprüfung soll die Entfernung zwischen Start- und Zieladresse ermittelt werden. Dafür wurde folgendes Vorgehen ausgewählt.
+Für eine einfachere Rechnungsprüfung soll die Entfernung zwischen Start- und Zieladresse ermittelt werden. Dafür wurde folgendes Vorgehen ausgewählt.
 Für Adressen können über die Web-API von Nominatim (https://nominatim.org/) die Geokoordinaten (lat/lon) ermittelt werden (Hier kann noch viel mehr ermittelt werden). Die Ermittlung über die Schnittstelle kann automatisiert erfolgen.
 
 Aus den ermittelten Koordinaten für Start- und Zielort lässt sich mittels der Haversine Formel die Entfernung zwischen den beiden Orten berechnen. Einen Überblick finden sie hier: https://www.geeksforgeeks.org/program-distance-two-points-earth/
@@ -55,9 +57,10 @@ Aus den ermittelten Koordinaten für Start- und Zielort lässt sich mittels der 
 
 ### Bereitstellung der Tabellen 
 
-Die Ergebnisstabelle soll in zwei Varianten zurück in die SQLite-Datenbank geschrieben werden. 
+Die Ergebnisstabelle soll in zwei Varianten zurück in eine neue SQLite-Datenbank `fahrten_dwh.sqlite` geschrieben werden. 
 - **FAHRTEN_ABRECHNUNG_RAW**: Hier werden alle Spalten der Tabelle angelegt, die bei den Bearbeitungsschritten entstanden sind. Also alle Infos aus Fahrtmeldung, Rechnung, die Koordinaten und die Entfernung.
-- **FAHRTEN_ABRECHNUNG**: Hier soll eine View auf die RAW-Tabelle angelegt, welche nur die für die Sachbearbeitung relevanten Spalten enthält ohne die Koordinaten.
+- **FAHRTEN_ABRECHNUNG**: Hier soll eine View auf die RAW-Tabelle angelegt, welche nur die für die Sachbearbeitung relevanten Spalten enthält ohne die Koordinaten. Hier sollen nur die Fahrten berücksichtigt werden für die bereits eine Rechnung vorliegt. 
+
 
 # Vorgehen
 
